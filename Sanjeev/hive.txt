@@ -1,0 +1,70 @@
+HIVE
+
+cd $HIVE_HOME
+ls
+cd conf/
+rm -rf metastore_db/
+ls
+schematool -dbType derby -initSchema
+$ hive
+
+show databases
+use dbname
+
+1. Insert 5 records using Insert command in HiveQL
+
+create table sales(product string,price int,payment_type string,name string,city string,state string,country string);
+
+hive> insert into sales values('product201',1000,'Visa','madhuri','Bangalore','Karnataka','India');
+
+hive> insert into sales values('product202',3000,'Diners','shwetha','seattle','washington','usa');
+
+hive> insert into sales values('product203',3000,'Mastercard','bob','ontario','NJ','usa');
+
+hive> insert into sales values('product204',3540,'Mastercard','bob','Mickleton','kk','usa');
+
+hive> insert into sales values('product205',3540,'Mastercard','charlie','hampton','NJ','usa');
+
+2. Import the dataset from the sales.csv 
+
+hive> load data local inpath '/home/hdoop/Desktop/sales.csv' into table sales;
+
+hive> select *from sales;
+
+3. Count the number of sales done by each country
+
+hive> select count(*) as count,Country from sales group by Country;
+
+4. Count the number of sales done by each state
+
+hive> select count(*) as count,State from salest group by State;
+
+5. Display (Product, name) grouped by product
+
+hive> select Product,name from sales group by Product,name;
+
+6. Create separate views for VISA and Mastercard
+
+hive> create view visa as select *from sales where Payment_type='Visa';
+
+hive> select *from visa;
+
+hive> create view master as select *from sales where Payment_type='Mastercard';
+
+hive> select *from master;
+
+7. Show all the transactions done in Seattle
+
+hive> select price from sales where city='seattle';
+
+8. Find the max number of transactions done within the state of Ontario
+
+hive> select max(Price) from sales where city='ontario' group by state;
+
+9. Find the number of transactions whose price is in between 1500-3600
+
+hive> select count(*) from sales where Price between 1500 and 3600;
+
+10. List all the transactions done in the United States using Mastercard
+
+hive> select *from sales where Country='usa' and Payment_Type='Mastercard';

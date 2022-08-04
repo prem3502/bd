@@ -1,0 +1,41 @@
+1)Populate the database with at least 15 documents
+
+db.Employee.insertMany([{"Firstname" : "Praneeth","Salary" : 35000, "Designation" : "Team leader", "Role" : [ "Team Lead", "SoftwareDeveloper"}])
+
+2)List all the records having salary in the range of 20000 – 35000
+
+db.Employee.find({$and:[{Salary:{$gt:20000}},{Salary:{$lt:35000}}]}).pretty()
+
+3)List all the Employee whose Middle name is "Kumar"
+
+db.Employee.find({Middlename:"Kumar"}).pretty()
+
+4)Count the number of Employees who has a role "Manager" in the Role field
+
+db.Employee.count({Role:"Manager"})
+
+5)Find out all the documents who have age < 35 and salary in the range of 30000-35000
+
+db.Employee.find({$and:[{Salary:{$gt:30000}},{Salary:{$lt:35000}},{Age:{$lt:35}}]})
+
+6)Delete an Employee whose "Firstname" is "Rajesh" and having the designation as "Scientist"
+
+db.Employee.remove({$and:[{Firstname:"Rajesh"},{Designation:"Scientist"}]})
+
+7)update all the Employees whose role is "Team Lead" with a salary of 55650 INR
+
+db.Employee.updateMany({Role:"Team Lead"},{$set:{Salary:55650}})
+
+8)Group all the Employees by their age(common age should be there) and calculate the average salary obtained in the each group
+
+db.Employee.aggregate([{$group:{_id:"$Age",Average:{$avg:"$Salary"}}}])
+
+9)Apply the map-reduce to perform the above operation and obtain the results
+
+> var mapfunction=function(){emit (this.Age,this.Salary)}
+
+> var reducefunction=function(key,values){return Array.avg(values)}
+
+> db.Employee.mapReduce(mapfunction,reducefunction,{'out':'result'})
+
+> db.result.find()

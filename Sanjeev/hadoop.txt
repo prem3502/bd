@@ -1,0 +1,69 @@
+Hadoop commands
+
+
+To start with hadoop
+>hadoop version
+>start-dfs.sh
+1.  Create a directory named by your name
+
+>hadoop fs -mkdir /ullaas
+>hadoop fs -ls /
+
+2. Add two empty files into it
+
+>hadoop fs -touchz /ullaas/one.txt
+>hadoop fs -touchz /ullaas/two.txt
+
+3. List all the files in the directory that you have created
+
+>hadoop fs -ls /ullaas
+
+4. Create one more directory by your usn and put that inside the directory of your name
+
+>hadoop fs -mkdir /ullaas/1NT19IS179
+>hadoop fs -ls /ullaas
+
+5. Create a file in your local system by the name_usn.txt and add the contents as "Syntax 
+to list Is command is hadoop fs -Is "
+
+ >cat > ullaas_1NT19IS179.txt
+ >"Syntax to list ls command is hadoop fs -ls"
+
+►Put the file usn_name.txt in your hdfs directory called usn
+
+>hadoop fs -touchz /ullaas/1NT19IS179/1NT19IS179_ullaas.txt
+>hadoop fs -ls /ullaas/1NT19IS179
+
+➤Put empty file of hdfs into the local file system
+
+>hadoop fs -copyToLocal /ullaas/1NT19IS179/1NT19IS179_ullaas.txt
+>ls
+
+►Use mv command to move files from local file system and hdfs file system
+
+>hadoop fs -mv /ullaas/two.txt /ullaas/1NT19IS179
+>hadoop fs -ls /ullaas/1NT19IS179
+
+▸ Experiment of cp command
+
+>hadoop fs -cp /ullaas/one.txt /ullaas/1NT19IS179
+>hadoop fs -ls /ullaas/1NT19IS179
+
+► Display the total size of all the files in name directory
+
+>hadoop fs -du /ullaas
+>hadoop fs -du -s /ullaas
+
+► Display each file size in usn directory Use stat command on name and usn directories
+
+>hadoop fs -du /ullaas/1NT19IS179
+
+➤ Illustrate the use of append command
+
+cat > one.txt
+Hello 
+^Z
+[4]+ Stopped cat > one.txt
+
+>hadoop fs -appendToFile one.txt /ullaas/1NT19IS179/two.txt
+>hadoop fs -cat /ullaas/1NT19IS179/two.txt
