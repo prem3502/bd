@@ -1,0 +1,261 @@
+
+1. Populate the database with atleast 15 documents
+db.Staff.insert({Name:'fardeen',SSN:'EMP0123',Department:'development 
+team',Salary:120000,Age:30,Increment:'Yes',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> db.Staff.find()
+{ "_id" : ObjectId("6298384cbb52ebf6c1e6370b"), "Name" : "fardeen", "SSN" : "EMP0123", "Department" : 
+"development team", "Salary" : 120000, "Age" : 30, "Increment" : "Yes", "Performance_status" : "good" }
+> db.Staff.insert({Name:'Singh',SSN:'EMP0124',Department:'development 
+team',Salary:130000,Age:30,Increment:'Yes',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Ravi',SSN:'EMP0125',Department:'Maintenance',Salary:25000
+,Age:31,Increment:'Yes',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Shastry',SSN:'EMP0126',Department:'Maintenance',Salary:30
+000,Age:25,Increment:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Aurangzeb',SSN:'EMP239',Department:'Maintenance',Salary:3
+5000,Age:27,Increment:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Shah',SSN:'EMP339',Department:'HR',Salary:29000,Age:40,Inc
+rement:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+db.Staff.insert({Name:'fardeen',SSN:'EMP0123',Department:'development 
+team',Salary:120000,Age:30,Increment:'Yes',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> db.Staff.find()
+{ "_id" : ObjectId("6298384cbb52ebf6c1e6370b"), "Name" : "fardeen", "SSN" : 
+"EMP0123", "Department" : "development team", "Salary" : 120000, "Age" : 30, 
+"Increment" : "Yes", "Performance_status" : "good" }
+> db.Staff.insert({Name:'Singh',SSN:'EMP0124',Department:'development 
+team',Salary:130000,Age:30,Increment:'Yes',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Ravi',SSN:'EMP0125',Department:'Maintenance',Salary:25000
+,Age:31,Increment:'Yes',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Shastry',SSN:'EMP0126',Department:'Maintenance',Salary:30
+000,Age:25,Increment:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Aurangzeb',SSN:'EMP239',Department:'Maintenance',Salary:3
+5000,Age:27,Increment:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Shah',SSN:'EMP339',Department:'HR',Salary:29000,Age:40,Inc
+rement:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+db.Staff.insert({Name:'fardeen',Department:['development 
+team','HR'],Salary:120000,Age:30,Increment:'Yes',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Singh',SSN:'EMP0124',Department:['Maintenance','developm
+ent team'],Salary:130000,Age:30,Increment:'Yes',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Ravi',SSN:'EMP0125',Department:['HR','Maintenance'],Salary:
+25000,Age:31,Increment:'Yes',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Shastry',SSN:'EMP0126',Department:['Maintenance','develop
+ment team'],Salary:30000,Age:25,Increment:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Aurangzeb',SSN:'EMP239',Department:['Maintenance'],Salary
+:35000,Age:27,Increment:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Shah',SSN:'EMP339',Department:['HR'],Salary:29000,Age:40,I
+ncrement:'No',Performance_status:'Average'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'Jahan',SSN:'EMP439',Department:['Administration','HR'],Salar
+y:27000,Age:46,Increment:'No',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'wali',SSN:'EMP539',Department:['Administration'],Salary:370
+00,Age:36,Increment:'No',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> db.Staff.insert({Name:'khan',SSN:'EMP639',Department:['Development 
+team'],Salary:37000,Age:36,Increment:'No',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })
+> 
+db.Staff.insert({Name:'wali1',SSN:'EMP639',Department:['Administration'],Salary:42
+000,Age:34,Increment:'No',Performance_status:'good'})
+WriteResult({ "nInserted" : 1 })]
+2. List all the records having salary in the range of 20000 – 35000(Exclusive)
+db.Staff.find({$and:[{'Salary':{$gt:20000}},{'Salary':{$lt:35000}}]})
+{ "_id" : ObjectId("629838efbb52ebf6c1e6370d"), "Name" : "Ravi", "SSN" : 
+"EMP0125", "Department" : "Maintenance", "Salary" : 25000, "Age" : 31, 
+"Increment" : "Yes", "Performance_status" : "Average" }
+{ "_id" : ObjectId("62983925bb52ebf6c1e6370e"), "Name" : "Shastry", "SSN" : 
+"EMP0126", "Department" : "Maintenance", "Salary" : 30000, "Age" : 25, 
+"Increment" : "No", "Performance_status" : "Average" }
+{ "_id" : ObjectId("629839acbb52ebf6c1e63710"), "Name" : "Shah", "SSN" : 
+"EMP339", "Department" : "HR", "Salary" : 29000, "Age" : 40, "Increment" : "No", 
+"Performance_status" : "Average" }
+{ "_id" : ObjectId("62983a18bb52ebf6c1e63711"), "Name" : "Jahan", "SSN" : 
+"EMP439", "Department" : "Administration", "Salary" : 27000, "Age" : 46, 
+"Increment" : "No", "Performance_status" : "good" }
+> db.Staff.find({'Department':'Maintenance'})
+{ "_id" : ObjectId("629838efbb52ebf6c1e6370d"), "Name" : "Ravi", "SSN" : 
+"EMP0125", "Department" : "Maintenance", "Salary" : 25000, "Age" : 31, 
+"Increment" : "Yes", "Performance_status" : "Average" }
+{ "_id" : ObjectId("62983925bb52ebf6c1e6370e"), "Name" : "Shastry", "SSN" : 
+"EMP0126", "Department" : "Maintenance", "Salary" : 30000, "Age" : 25, 
+"Increment" : "No", "Performance_status" : "Average" }
+{ "_id" : ObjectId("62983959bb52ebf6c1e6370f"), "Name" : "Aurangzeb", "SSN" : 
+"EMP239", "Department" : "Maintenance", "Salary" : 35000, "Age" : 27, 
+"Increment" : "No", "Performance_status" : "Average" }
+> db.Staff.find({'Performance_status':'Average'})
+{ "_id" : ObjectId("629838efbb52ebf6c1e6370d"), "Name" : "Ravi", "SSN" : 
+"EMP0125", "Department" : "Maintenance", "Salary" : 25000, "Age" : 31, 
+"Increment" : "Yes", "Performance_status" : "Average" }
+{ "_id" : ObjectId("62983925bb52ebf6c1e6370e"), "Name" : "Shastry", "SSN" : 
+"EMP0126", "Department" : "Maintenance", "Salary" : 30000, "Age" : 25, 
+"Increment" : "No", "Performance_status" : "Average" }
+{ "_id" : ObjectId("62983959bb52ebf6c1e6370f"), "Name" : "Aurangzeb", "SSN" : 
+"EMP239", "Department" : "Maintenance", "Salary" : 35000, "Age" : 27, 
+"Increment" : "No", "Performance_status" : "Average" }
+{ "_id" : ObjectId("629839acbb52ebf6c1e63710"), "Name" : "Shah", "SSN" : 
+"EMP339", "Department" : "HR", "Salary" : 29000, "Age" : 40, "Increment" : "No", 
+"Performance_status" : "Average" }
+3. List all the Sta who belong to the Maintenance Department
+db.Staff.find({Department:{$in:["Maintenance"]}})
+[
+ {
+ _id: ObjectId("629838efbb52ebf6c1e6370d"),
+ Name: 'Ravi',
+ SSN: 'EMP0125',
+ Department: 'Maintenance',
+ Salary: 25000,
+ Age: 31,
+ Increment: 'Yes',
+ Performance_status: 'Average'
+ },
+ {
+ _id: ObjectId("62983925bb52ebf6c1e6370e"),
+ Name: 'Shastry',
+ SSN: 'EMP0126',
+ Department: 'Maintenance',
+ Salary: 30000,
+ Age: 25,
+ Increment: 'No',
+ Performance_status: 'Average'
+ },
+ {
+ _id: ObjectId("62983959bb52ebf6c1e6370f"),
+ Name: 'Aurangzeb',
+ SSN: 'EMP239',
+ Department: 'Maintenance',
+ Salary: 35000,
+ Age: 27,
+ Increment: 'No',
+ Performance_status: 'Average'
+ },
+ {
+ _id: ObjectId("62983e0abb52ebf6c1e63716"),
+ Name: 'Singh',
+ SSN: 'EMP0124',
+ Department: [ 'Maintenance', 'development team' ],
+ Salary: 130000,
+ Age: 30,
+ Increment: 'Yes',
+ Performance_status: 'good'
+ },
+ {
+ _id: ObjectId("62983e1fbb52ebf6c1e63717"),
+ Name: 'Ravi',
+ SSN: 'EMP0125',
+ Department: [ 'HR', 'Maintenance' ],
+ Salary: 25000,
+ Age: 31,
+ Increment: 'Yes',
+ Performance_status: 'Average'
+ },
+ {
+ _id: ObjectId("62983e41bb52ebf6c1e63718"),
+ Name: 'Shastry',
+ SSN: 'EMP0126',
+ Department: [ 'Maintenance', 'development team' ],
+ Salary: 30000,
+ Age: 25,
+ Increment: 'No',
+ Performance_status: 'Average'
+ },
+ {
+ _id: ObjectId("62983e55bb52ebf6c1e63719"),
+ Name: 'Aurangzeb',
+ SSN: 'EMP239',
+ Department: [ 'Maintenance' ],
+ Salary: 35000,
+ Age: 27,
+ Increment: 'No',
+ Performance_status: 'Average'
+ }
+]
+4. Count the number of Stas whose performance status is "Average"
+db.Staff.find({'Performance_status':'Average'}).count()
+8
+5. Find out all the Stas who have age < 35 and salary in the range of 40000-45000
+>>db.Staff.find({$and:[{'Age':{$lt:35}},{$and:[{'Salary':{$gt:40000}},{'Salary':{$lt:4
+5000}}]}]})
+{ "_id" : ObjectId("62983cebbb52ebf6c1e63714"), "Name" : "wali1", "SSN" : 
+"EMP639", "Department" : "Administration", "Salary" : 42000, "Age" : 34, 
+"Increment" : "No", "Performance_status" : "good" }
+6. Delete a Sta from database whose ID = EMP239
+>>db.Staff.deleteOne({'SSN':'EMP239'})
+{ acknowledged: true, deletedCount: 1 }
+7. Update all the Sta whose increment status as "Yes" with a salary of 75650 INR
+db.Staff.updateMany({'Increment':'Yes'},{$set:{'Salary':75650}})
+{
+ acknowledged: true,
+ insertedId: null,
+ matchedCount: 6,
+ modifiedCount: 6,
+ upsertedCount: 0
+}
+8. Update the Sta by name "Ravi" and remove the Performance status eld from the 
+document
+db.Staff.updateMany({'Name':'Ravi'},{$unset:{'Performance_status':""}})
+{
+ acknowledged: true,
+ insertedId: null,
+ matchedCount: 2,
+ modifiedCount: 2,
+ upsertedCount: 0
+}
+9. Group all the Employees by their Increment Status and calculate the average 
+salary obtained
+in the each group
+db.Staff.aggregate([{$group:{_id:'$Increment',Salary_avg:{$avg:'$Salary'}}}])
+[
+ { _id: 'Yes', Salary_avg: 75650 },
+ { _id: 'No', Salary_avg: 33769.230769230766 }
+10. Apply the map-reduce aggregation to project the name and amount owned by 
+each sta by
+doing multiple jobs in dierent department.
+var mapc = function()
+var mapc = function(){emit(this.Name,this.Salary)}
+var redc = function(key,value){return Array.sum(value)}
+db.Staff.mapReduce(mapc,redc,{out: 'sum_sal'})
+{ result: 'sum_sal', ok: 1 }
+db.sum_sal.find()
+[
+ { _id: 'Ravi', value: 151300 },
+ { _id: 'wali', value: 74000 },
+ { _id: 'Shah', value: 58000 },
+ { _id: 'Shastry', value: 60000 },
+ { _id: 'Aurangzeb', value: 35000 },
+ { _id: 'Singh', value: 151300 },
+ { _id: 'fardeen', value: 151300 },
+ { _id: 'Jahan', value: 54000 },
+ { _id: 'khan', value: 74000 },
+ { _id: 'wali1', value: 84000 }
+]
